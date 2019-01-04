@@ -1,0 +1,21 @@
+﻿@font-face {
+    font-family: Cinzel-Regular;
+    src: url(./fonts/Cinzel-Regular.otf);
+}
+
+.navbar li .glyphicon {
+    margin-right: 10px;
+}
+
+/* Highlighting rules for nav menu items */
+.navbar .navbar-nav .active a,
+.navbar .navbar-nav .active a:hover,
+.navbar .navbar-nav .active a:focus {
+    background-image: none;
+    background-color: grey;
+    color: white;
+}
+
+.navbar {
+    font-family: 'Courier New', Courier, monospace;
+}
