@@ -33,7 +33,19 @@ export class Project extends Component {
     render() {
         const { error, isLoaded, repos } = this.state;
         if (error) {
-            return <div className="text-center text-danger">Error: {error.message}</div>;
+            return (
+                <section id="projects" className="projects-section global-padding">
+                    <Grid>
+                        <Row>
+                            <h2 className="text-center">Projects</h2>
+                            <p className="b-underline"></p>
+                        </Row>
+                        <Row className="global-margin">
+                            <div className="text-center text-danger">Error: {error.message}</div>
+                        </Row>
+                    </Grid>
+                </section>
+            );
         } else if (!isLoaded) {
             return <div className="text-center">Loading...</div>;
         } else {
