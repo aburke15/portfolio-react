@@ -12,7 +12,7 @@ export class Resume extends Component {
                         <p className="b-underline"></p>
                     </Row>
                     <Row className="global-margin">
-                        <img className="img-responsive resume" width="85%" src="../img/portfolio/Andre Burke.jpg" alt="My Resume" />
+                        <img className="img-responsive resume" width="85%" src="../img/portfolio/AndreBurke.jpg" alt="My Resume" />
                     </Row>
                 </Grid>
             </section>
