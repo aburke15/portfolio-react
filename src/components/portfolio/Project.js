@@ -1,5 +1,40 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col, Jumbotron, ListGroup, ListGroupItem } from 'react-bootstrap';
+import DataTable from 'react-data-table-component';
+
+const columns = [
+    {
+        name: 'Name',
+        selector: 'name',
+        sortable: true
+    },
+    {
+        name: 'Description',
+        selector: 'description',
+        sortable: true
+    },
+    {
+        name: 'Language',
+        selector: 'language',
+        sortable: true
+    },
+    {
+        name: 'Forks',
+        selector: 'forks',
+        sortable: true
+    },
+    {
+        name: 'Url',
+        selector: 'htmlUrl',
+        sortable: true
+    },
+    {
+        name: 'Created Date',
+        selector: 'createdAt',
+        sortable: true,
+        right: true
+    }
+];
 
 export class Project extends Component {
     constructor(props) {
@@ -51,46 +86,47 @@ export class Project extends Component {
         } else {
             const secondColumnStart = Math.floor(repos.length / 2);
             return (
-                <section id="projects" className="projects-section global-padding">
-                    <Grid>
-                        <Row>
-                            <h2 className="text-center">Projects</h2>
-                            <p className="b-underline"></p>
-                        </Row>
-                        <Row className="global-margin">
-                            <Col md={6}>
-                                {repos.slice(0, secondColumnStart).map(repo => (
-                                    <Jumbotron key={repo.name}>
-                                        <h3>{repo.name.toUpperCase()}</h3>
-                                        <hr />
-                                        <ListGroup>
-                                            <ListGroupItem>Desc:&nbsp;{repo.description}</ListGroupItem>
-                                            <ListGroupItem>Language:&nbsp;{repo.language}</ListGroupItem>
-                                            <ListGroupItem>Forks:&nbsp;{repo.forks}</ListGroupItem>
-                                            <ListGroupItem><a target="_blank" rel="noopener noreferrer" href={repo.htmlUrl}>View in GitHub</a></ListGroupItem>
-                                            <ListGroupItem>Created:&nbsp;{repo.createdAt}</ListGroupItem>
-                                        </ListGroup>
-                                    </Jumbotron>
-                                ))}
-                            </Col>
-                            <Col md={6}>
-                                {repos.slice(secondColumnStart).map(repo => (
-                                    <Jumbotron key={repo.name}>
-                                        <h3>{repo.name.toUpperCase()}</h3>
-                                        <hr />
-                                        <ListGroup>
-                                            <ListGroupItem>Desc:&nbsp;{repo.description}</ListGroupItem>
-                                            <ListGroupItem>Language:&nbsp;{repo.language}</ListGroupItem>
-                                            <ListGroupItem>Forks:&nbsp;{repo.forks}</ListGroupItem>
-                                            <ListGroupItem><a target="_blank" rel="noopener noreferrer" href={repo.htmlUrl}>View in GitHub</a></ListGroupItem>
-                                            <ListGroupItem>Created:&nbsp;{repo.createdAt}</ListGroupItem>
-                                        </ListGroup>
-                                    </Jumbotron>
-                                ))}
-                            </Col>
-                        </Row>
-                    </Grid>
-                </section>
+                <DataTable title="Projects" columns={columns} data={repos} />
+                // <section id="projects" className="projects-section global-padding">
+                //     <Grid>
+                //         <Row>
+                //             <h2 className="text-center">Projects</h2>
+                //             <p className="b-underline"></p>
+                //         </Row>
+                //         <Row className="global-margin">
+                //             <Col md={6}>
+                //                 {repos.slice(0, secondColumnStart).map(repo => (
+                //                     <Jumbotron key={repo.name}>
+                //                         <h3>{repo.name.toUpperCase()}</h3>
+                //                         <hr />
+                //                         <ListGroup>
+                //                             <ListGroupItem>Desc:&nbsp;{repo.description}</ListGroupItem>
+                //                             <ListGroupItem>Language:&nbsp;{repo.language}</ListGroupItem>
+                //                             <ListGroupItem>Forks:&nbsp;{repo.forks}</ListGroupItem>
+                //                             <ListGroupItem><a target="_blank" rel="noopener noreferrer" href={repo.htmlUrl}>View in GitHub</a></ListGroupItem>
+                //                             <ListGroupItem>Created:&nbsp;{repo.createdAt}</ListGroupItem>
+                //                         </ListGroup>
+                //                     </Jumbotron>
+                //                 ))}
+                //             </Col>
+                //             <Col md={6}>
+                //                 {repos.slice(secondColumnStart).map(repo => (
+                //                     <Jumbotron key={repo.name}>
+                //                         <h3>{repo.name.toUpperCase()}</h3>
+                //                         <hr />
+                //                         <ListGroup>
+                //                             <ListGroupItem>Desc:&nbsp;{repo.description}</ListGroupItem>
+                //                             <ListGroupItem>Language:&nbsp;{repo.language}</ListGroupItem>
+                //                             <ListGroupItem>Forks:&nbsp;{repo.forks}</ListGroupItem>
+                //                             <ListGroupItem><a target="_blank" rel="noopener noreferrer" href={repo.htmlUrl}>View in GitHub</a></ListGroupItem>
+                //                             <ListGroupItem>Created:&nbsp;{repo.createdAt}</ListGroupItem>
+                //                         </ListGroup>
+                //                     </Jumbotron>
+                //                 ))}
+                //             </Col>
+                //         </Row>
+                //     </Grid>
+                // </section>
             );
         }
     }
